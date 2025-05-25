@@ -3,10 +3,10 @@ import './globals.css'
 import '../styles/custom.css'
 
 export const metadata: Metadata = {
-  title: 'Coriano Harris Website',
+  title: 'Coriano Harris | Ideas. Design. Code. Impact.',
   description: 'Coriano Harris services site',
   icons: {
-    icon: '/favicon.ico',
+    icon: '/images/favicon.svg',
   },
 }
 
