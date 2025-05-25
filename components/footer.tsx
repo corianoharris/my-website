@@ -85,9 +85,10 @@ export default function Footer({ largeFontEnabled }: FooterProps) {
 
         <div className="border-t border-purple-700 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className={`text-purple-200 ${largeFontEnabled ? "text-base" : "text-sm"}`}>
-            © {new Date().getFullYear()} Coriano Harris. All rights reserved.
+            © {new Date().getFullYear()} Powered by Coriano Harris. All rights reserved.
           </p>
-          <div className="flex gap-6 mt-4 md:mt-0">
+          { /* Privacy Policy and Terms of Service links styles: flex gap-6 mt-4 md:mt-0  */}
+          <div className="hidden">
             <Link
               href="#"
               tabIndex={0}
