@@ -57,7 +57,7 @@ export default function Navbar({
               tabIndex={1}
               className="flex items-center gap-2 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 rounded-md"
             >
-              <Image
+              <img
                 src="/images/favicon.svg"
                 alt="Coriano Harris Portfolio Logo"
                 width={40}

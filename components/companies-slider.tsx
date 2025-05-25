@@ -3,7 +3,7 @@
 import { useRef, useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Card, CardContent } from "@/components/ui/card"
-import { ChevronLeft, ChevronRight, ExternalLink, X, Calendar, Users, TrendingUp, Award } from "lucide-react"
+import { ChevronLeft, ChevronRight, ExternalLink, X, Calendar, Users, TrendingUp, Award, Maximize2, ChevronUp, ChevronDown, } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import Image from "next/image"
@@ -111,7 +111,12 @@ export default function CompaniesSlider({ animationsEnabled, largeFontEnabled }:
         impact: "Increased Google ranking by 30%.",
         images: [
           {
-            src: "/placeholder.svg?height=300&width=400&query=cms interface design mockup",
+            src: "/images/ally-1.png",
+            title: "Rendered Dashboard",
+            description: "Dashboard was slow to render, so we implemented server side rendering to improve performance.",
+          },
+          {
+            src: "/images/ally-2.png",
             title: "Added breadcrumbs navigation",
             description: "User were frustrated by the lack of navigation, so we added breadcrumbs to make it easy to navigate the dashboard.",
           }
@@ -177,6 +182,8 @@ export default function CompaniesSlider({ animationsEnabled, largeFontEnabled }:
   const sliderRef = useRef<HTMLDivElement>(null)
   const [currentSlide, setCurrentSlide] = useState(0)
   const [expandedCards, setExpandedCards] = useState<Set<number>>(new Set())
+   const [selectedImage, setSelectedImage] = useState<{ image: any; projectName: string } | null>(null)
+  const [isImageExpanded, setIsImageExpanded] = useState(false)
   const [selectedProject, setSelectedProject] = useState<(typeof companies)[0] | null>(null)
 
   const scrollToSlide = (index: number) => {
@@ -207,12 +214,26 @@ export default function CompaniesSlider({ animationsEnabled, largeFontEnabled }:
     setExpandedCards(newExpanded)
   }
 
+    const openImageModal = (image: any, projectName: string) => {
+    setSelectedImage({ image, projectName })
+    setIsImageExpanded(false) // Reset expansion state
+  }
+
+  const closeImageModal = () => {
+    setSelectedImage(null)
+    setIsImageExpanded(false)
+  }
+
   const openProjectModal = (company: (typeof companies)[0]) => {
     setSelectedProject(company)
   }
 
   const closeProjectModal = () => {
     setSelectedProject(null)
+  }
+
+   const toggleImageExpansion = () => {
+    setIsImageExpanded(!isImageExpanded)
   }
 
   const containerVariants = {
@@ -246,12 +267,12 @@ export default function CompaniesSlider({ animationsEnabled, largeFontEnabled }:
             {/* Company logo */}
             <div className="flex-shrink-0" tabIndex={0} aria-label={`${company.name} company logo`}>
               <div className="w-12 h-12 rounded-full overflow-hidden bg-gradient-to-br from-purple-100 to-purple-200">
-                <Image
+                <img
                   src={company.logo || "/placeholder.svg"}
                   alt={`${company.name} logo`}
                   width={48}
                   height={48}
-                  className="object-cover w-full h-full"
+                  className="object-contain w-full h-full"
                 />
               </div>
             </div>
@@ -322,10 +343,113 @@ export default function CompaniesSlider({ animationsEnabled, largeFontEnabled }:
     )
   }
 
+  const ImageModal = ({ image, projectName }: { image: any; projectName: string }) => {
+    const shouldTruncate = image.description.length > 150
+
+    return (
+      <motion.div
+        className="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        onClick={closeImageModal}
+      >
+        <motion.div
+          className="bg-white rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto"
+          initial={{ scale: 0.9, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          exit={{ scale: 0.9, opacity: 0 }}
+          onClick={(e) => e.stopPropagation()}
+        >
+          {/* Header */}
+          <div className="relative p-6 border-b border-gray-200">
+            <button
+              onClick={closeImageModal}
+              tabIndex={1}
+              className="absolute top-4 right-4 p-2 hover:bg-gray-100 rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2"
+              aria-label="Close image details"
+            >
+              <X className="h-5 w-5" />
+            </button>
+
+            <div className="pr-12">
+              <h2 className="text-2xl font-bold text-gray-900 mb-1">{image.title}</h2>
+              <p className="text-lg text-purple-600 font-medium">{projectName}</p>
+            </div>
+          </div>
+
+          {/* Content */}
+          <div className="p-6">
+            {/* Image */}
+            <div className="relative h-64 md:h-80 bg-gray-100 rounded-lg overflow-hidden mb-6">
+              <img
+                src={image.src || "/placeholder.svg"}
+                alt={image.title}
+                className="object-contain w-full h-full"
+                draggable={false}
+              />
+            </div>
+
+            {/* Description */}
+            <div className="space-y-4">
+              <h3 className="text-lg font-semibold text-gray-900">Description</h3>
+
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={isImageExpanded ? "expanded" : "collapsed"}
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
+                  transition={{ duration: 0.3, ease: "easeInOut" }}
+                  className="overflow-hidden"
+                >
+                  <p className="text-gray-700 leading-relaxed">
+                    {shouldTruncate && !isImageExpanded ? (
+                      <span>
+                        {image.description.substring(0, 150)}
+                        <span className="opacity-70">...</span>
+                      </span>
+                    ) : (
+                      image.description
+                    )}
+                  </p>
+                </motion.div>
+              </AnimatePresence>
+
+              {shouldTruncate && (
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={toggleImageExpansion}
+                  tabIndex={2}
+                  className="text-purple-600 hover:text-purple-700 border-purple-200 hover:border-purple-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2"
+                  aria-expanded={isImageExpanded}
+                  aria-controls="image-description-content"
+                >
+                  {isImageExpanded ? (
+                    <>
+                      <ChevronUp className="h-4 w-4 mr-1" />
+                      Show Less
+                    </>
+                  ) : (
+                    <>
+                      <ChevronDown className="h-4 w-4 mr-1" />
+                      Read More
+                    </>
+                  )}
+                </Button>
+              )}
+            </div>
+          </div>
+        </motion.div>
+      </motion.div>
+    )
+  }
+
   const ProjectModal = ({ project }: { project: (typeof companies)[0] }) => {
     return (
       <motion.div
-        className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+        className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 flex items-center justify-center p-4"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
@@ -351,12 +475,12 @@ export default function CompaniesSlider({ animationsEnabled, largeFontEnabled }:
 
             <div className="flex items-center gap-4 mb-4">
               <div className="w-16 h-16 rounded-full overflow-hidden bg-gradient-to-br from-purple-100 to-purple-200">
-                <Image
+                <img
                   src={project.logo || "/placeholder.svg"}
                   alt={`${project.name} logo`}
                   width={64}
                   height={64}
-                  className="object-cover w-full h-full"
+                  className="object-contain w-full h-full"
                 />
               </div>
               <div>
@@ -390,25 +514,37 @@ export default function CompaniesSlider({ animationsEnabled, largeFontEnabled }:
 
           {/* Content */}
           <div className="p-6 space-y-6">
-            {/* Project Images - Simple Horizontal Scroll */}
+            {/* Project Images - Clickable Cards */}
             <div>
               <h3 className="text-lg font-semibold mb-4">Project Showcase</h3>
-              <div className="flex justify-start overflow-x-auto space-x-4 pb-4 scrollbar-thin scrollbar-thumb-purple-300 scrollbar-track-gray-100">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {project.project.images.map((image, index) => (
-                  <Card key={index} className="min-w-[280px] max-w-[400px] flex-shrink-0 hover:shadow-md transition-shadow">
+                  <Card
+                    key={index}
+                    className="hover:shadow-md transition-all duration-200 cursor-pointer group"
+                    onClick={() => openImageModal(image, project.name)}
+                  >
                     <CardContent className="p-0">
-                      <div className="relative h-48 bg-gray-100 rounded-t-lg overflow-hidden">
-                        <Image
+                      <div className="relative h-64 md:h-80 bg-gray-100 rounded-lg overflow-y-auto mb-6">
+                        <img
                           src={image.src || "/placeholder.svg"}
                           alt={image.title}
-                          fill
-                          className="object-contain"
+                          className="object-contain w-full h-full group-hover:scale-105 transition-transform duration-200"
                           draggable={false}
                         />
+                        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-200 flex items-center justify-center">
+                          <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-white/90 rounded-full p-2">
+                            <Maximize2 className="h-5 w-5 text-gray-700" />
+                          </div>
+                        </div>
                       </div>
                       <div className="p-4">
                         <h4 className="font-semibold text-gray-900 mb-1">{image.title}</h4>
-                        <p className="text-sm text-gray-600">{image.description}</p>
+                        <p className="text-sm text-gray-600 line-clamp-2">{image.description.substring(0, 80)}...</p>
+                        <div className="mt-2 flex items-center text-purple-600 text-sm font-medium">
+                          <span>View details</span>
+                          <ChevronRight className="h-4 w-4 ml-1" />
+                        </div>
                       </div>
                     </CardContent>
                   </Card>
@@ -460,15 +596,16 @@ export default function CompaniesSlider({ animationsEnabled, largeFontEnabled }:
               <p className="text-purple-100 mb-4">
                 Learn more about the process, challenges, and solutions implemented in this project.
               </p>
-              <Button
+              {/* <Button
                 asChild
                 tabIndex={2}
-                className="bg-white text-purple-600 hover:bg-purple-50 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 hidden"
+                className="bg-white text-purple-600 hover:bg-purple-50 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2"
               >
-                {/* <Link href={project.project.ctaUrl} referrerPolicy="no-referrer">
+                {project.project.ctaUrl ? (<Link href={project.project.ctaUrl}>
                   {project.project.ctaText} <ExternalLink className="ml-2 h-4 w-4" />
-                </Link> */}
-              </Button>
+                </Link>) : null}
+                
+              </Button> */}
             </div>
           </div>
         </motion.div>
@@ -597,6 +734,11 @@ export default function CompaniesSlider({ animationsEnabled, largeFontEnabled }:
 
       {/* Project Modal */}
       <AnimatePresence>{selectedProject && <ProjectModal project={selectedProject} />}</AnimatePresence>
+
+      {/* Image Modal */}
+      <AnimatePresence>
+        {selectedImage && <ImageModal image={selectedImage.image} projectName={selectedImage.projectName} />}
+      </AnimatePresence>
     </section>
   )
 }
