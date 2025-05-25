@@ -18,6 +18,7 @@ export default function TeaserSection({ animationsEnabled, largeFontEnabled }: T
         duration: 0.3,
       },
     },
+    start: { opacity: 0.7, scale: 0.9 },
   }
 
   const textVariants = {
@@ -49,7 +50,7 @@ export default function TeaserSection({ animationsEnabled, largeFontEnabled }: T
         {animationsEnabled ? (
           <motion.div
             className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
-            initial="hidden"
+            initial="start"
             whileInView="visible"
             viewport={{ once: true }}
             variants={containerVariants}
@@ -70,7 +71,8 @@ export default function TeaserSection({ animationsEnabled, largeFontEnabled }: T
               <p className={`text-purple-900 font-semibold ${largeFontEnabled ? "text-lg" : "text-base"}`} tabIndex={0}>
                 Available for freelance projects and full-time opportunities.
               </p>
-              <div className="flex flex-wrap gap-4 hidden">
+              {/* Button styles when needed: flex flex-wrap gap-4 */}
+              <div className="hidden">
                 <Button
                   size={largeFontEnabled ? "lg" : "lg"}
                   className={`bg-white text-purple-600 hover:bg-purple-50 ${
@@ -128,7 +130,8 @@ export default function TeaserSection({ animationsEnabled, largeFontEnabled }: T
               <p className={`text-purple-900 font-semibold ${largeFontEnabled ? "text-lg" : "text-base"}`} tabIndex={0}>
                 Available for freelance projects and full-time opportunities.
               </p>
-              <div className="flex flex-wrap gap-4 hidden">
+              {/* Button styles when needed: flex flex-wrap gap-4 */}
+              <div className="hidden">
                 <Button
                   size={largeFontEnabled ? "lg" : "lg"}
                   className={`bg-white text-purple-600 hover:bg-purple-50 ${
@@ -154,7 +157,7 @@ export default function TeaserSection({ animationsEnabled, largeFontEnabled }: T
               tabIndex={0}
               aria-label="Creative workspace showcase image"
             >
-              <div className="relative h-[400px] lg:h-[500px] rounded-lg overflow-hidden shadow-2xl p-2 transform md:skew-y-6 transition duration-300">
+              <div className="relative h-[400px] lg:h-[500px] rounded-lg overflow-hidden shadow-2xl p-2 transform lg:skew-y-3 transition duration-300 mt-4 lg:mt-0">
                 <Image
                   src="/images/sd_a11y.jpg"
                   alt="Coriano spesking to designers and developers about accessibility"

@@ -217,18 +217,18 @@ export default function ToolsSection({ animationsEnabled, largeFontEnabled }: To
           </div>
         )}
 
-        <div className="grid place-items-center grid-cols-1 lg:grid-cols-2 gap-12 relative">
+        <div className="grid items-start justify-items-center grid-cols-1 lg:grid-cols-2 gap-12 relative">
           {/* UX/UI Tools */}
           <div>
             <h3
-              className={`font-bold mb-6 text-center lg:text-left ${largeFontEnabled ? "text-3xl" : "text-2xl"}`}
+              className={`font-bold mb-6 text-center ${largeFontEnabled ? "text-3xl" : "text-2xl"}`}
               tabIndex={0}
             >
               UX/UI Design
             </h3>
             {animationsEnabled ? (
               <motion.div
-                className="grid grid-cols-3 gap-6 justify-items-center max-w-xs mx-auto lg:mx-0"
+                className="grid grid-cols-3 gap-6 md:grid-cols-4 place-items-center max-w-sm mx-auto lg:mx-0"
                 variants={containerVariants}
                 initial="hidden"
                 whileInView="visible"
@@ -244,7 +244,7 @@ export default function ToolsSection({ animationsEnabled, largeFontEnabled }: To
               </motion.div>
             ) : (
               <div
-                className="grid grid-cols-3 gap-6 justify-items-center max-w-xs mx-auto lg:mx-0"
+                className="grid grid-cols-3 gap-6 md:grid-cols-4 justify-items-center max-w-sm mx-auto lg:mx-0"
                 role="group"
                 aria-label="UX/UI Design tools"
               >
@@ -263,14 +263,14 @@ export default function ToolsSection({ animationsEnabled, largeFontEnabled }: To
           {/* Developer Tools */}
           <div>
             <h3
-              className={`font-bold mb-6 text-center lg:text-left ${largeFontEnabled ? "text-3xl" : "text-2xl"}`}
+              className={`font-bold mb-6 text-center ${largeFontEnabled ? "text-3xl" : "text-2xl"}`}
               tabIndex={0}
             >
               Development
             </h3>
             {animationsEnabled ? (
               <motion.div
-                className="grid grid-cols-5 gap-4 justify-items-center"
+                className="grid grid-cols-3 gap-6 md:grid-cols-4 justify-items-center max-w-sm mx-auto lg:mx-0"
                 variants={containerVariants}
                 initial="hidden"
                 whileInView="visible"
@@ -285,7 +285,7 @@ export default function ToolsSection({ animationsEnabled, largeFontEnabled }: To
                 ))}
               </motion.div>
             ) : (
-              <div className="grid grid-cols-5 gap-4 justify-items-center" role="group" aria-label="Development tools">
+              <div className="grid grid-cols-3 gap-6 md:grid-cols-4 justify-items-center max-w-sm mx-auto lg:mx-0" role="group" aria-label="Development tools">
                 {devTools.map((tool, index) => (
                   <div key={index}>
                     <ToolIcon tool={tool} />
