@@ -274,6 +274,7 @@ export default function CompaniesSlider({ animationsEnabled, largeFontEnabled }:
                   width={48}
                   height={48}
                   className="object-contain w-full h-full"
+                  loading="eager"
                 />
               </div>
             </div>

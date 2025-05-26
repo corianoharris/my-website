@@ -125,7 +125,7 @@ export default function CommunitySection({ animationsEnabled, largeFontEnabled }
     const shouldTruncate = contribution.description.length > 100
 
     return (
-      <Card className="h-full bg-white shadow-sm border border-gray-200 rounded-xl overflow-hidden hover:shadow-md transition-shadow w-full sm:w-11/12 md:w-10/12">
+      <Card className="h-full bg-white shadow-sm border border-gray-200 rounded-xl overflow-hidden hover:shadow-md transition-shadow w-full sm:w-12/12 md:w-10/12">
         <CardContent className="p-4">
           <div className="flex flex-col justify-between h-full">
             {/* Contribution image */}
@@ -138,6 +138,7 @@ export default function CommunitySection({ animationsEnabled, largeFontEnabled }
                   width={48}
                   height={48}
                   className="object-cover w-full h-full"
+                  priority
                 />
               </div>
               {/* <div className="absolute -top-1 right-1">{contribution.icon}</div> */}

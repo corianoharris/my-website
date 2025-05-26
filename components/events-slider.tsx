@@ -159,6 +159,7 @@ export default function EventsSlider({ animationsEnabled, largeFontEnabled }: Ev
                   width={48}
                   height={48}
                   className="object-cover w-full h-full"
+                  priority
                 />
               </div>
               <Badge

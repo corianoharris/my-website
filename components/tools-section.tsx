@@ -154,6 +154,7 @@ export default function ToolsSection({ animationsEnabled, largeFontEnabled }: To
           width={40}
           height={40}
           className="object-contain"
+          priority
         />
       </div>
 
