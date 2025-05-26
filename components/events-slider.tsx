@@ -39,41 +39,41 @@ export default function EventsSlider({ animationsEnabled, largeFontEnabled }: Ev
       url: "https://bdpamemphis.org/",
     },
     {
-      title: "World Design Captial 2024 Friends of Figma SD",
-      image: "/images/sddtk.png",
-      date: "September 18–25, 2024",
-      location: "San Diego, CA",
-      role: "Speaker",
-      topic:
-        "A 2 hour workshop on UX Leadership Best Practices and Tools for Design Teams",
-      url: "https://wdo.org/programmes/wdc/wdc-san-diego-tijuana-2024/why-san-diego-and-tijuana/",
-    },
-    {
-      title: "Breakthrough Leadership Foundation Event",
+      title: "Ethical AI ",
       image: "/images/breakthroughLeadership.png",
       date: "April 18, 2025",
       location: "Memphis, TN",
       role: "Speaker",
       topic:
-        "A Talk about how to apply Ethical AI to your business and how to make sure you are doing it right",
+        "A Talk about how to apply Ethical AI to your business and how to make sure you are doing it right with the Breakthrough Leadership Foundation",
       url: "https://breakthroughleadershipfoundation.org/",
     },
+    {
+      title: "UX Leadership",
+      image: "/images/sddtk.png",
+      date: "September 18–25, 2024",
+      location: "San Diego, CA",
+      role: "Speaker",
+      topic:
+        "A 2 Day UX Leadership workshop with Friends of San Diego Leaders hosted by World Design Capital and San Diego Design Trek at Inituit and Shalom headerquaters",
+      url: "https://wdo.org/programmes/wdc/wdc-san-diego-tijuana-2024/why-san-diego-and-tijuana/",
+    },
      {
-      title: "Memphis Voyager - A Conversation with Coriano Harris",
+      title: "Article Interview",
       image: "/icons/memphisvoyager.png",
       date: "March 25, 2025",
       location: "Memphis, TN",
-      role: "Inteviewee",
+      role: "Guest",
       topic:
-        "A fun article about Coriano Harris ux/ui and developement journery",
+        "A fun inverview with Coriano Harris ux/ui and developement journery with Memphis Voyager",
       url: "https://memphisvoyager.com/interview/conversations-with-coriano-harris",
     },
      {
-      title: "Never Be a Spectator - A Conversation with Coriano Harris",
+      title: "Radio Interview",
       image: "/icons/iheart.png",
       date: "May 1, 2020",
       location: "Virtual",
-      role: "Inteviewee",
+      role: "Guest",
       topic:
         "A fun and inimate conversation with Coriano Harris about his ux/ui and developement journery and why he can't stand to be a spectator",
       url: "https://www.iheart.com/podcast/269-the-code-to-life-62799139/episode/coriano-harris-never-be-a-spectator-62810785/",
@@ -147,9 +147,11 @@ export default function EventsSlider({ animationsEnabled, largeFontEnabled }: Ev
     return (
       <Card className="h-full bg-white shadow-sm border border-gray-200 rounded-xl overflow-hidden hover:shadow-md transition-shadow w-full sm:w-11/12 md:w-10/12">
         <CardContent className="p-4">
-          <div className="flex items-start space-x-4">
+          <div className="flex flex-col justify-between h-full">
             {/* Event image */}
             <div className="flex-shrink-0 relative" tabIndex={0} aria-label={`${event.title} event`}>
+              <div className="flex flex-cols justify-start items-center gap-4 flex-wrap mb-4 bg-purple-800 rounded-sm p-2 text-white shadow-2xl">
+
               <div className="w-12 h-12 rounded-full overflow-hidden bg-gradient-to-br from-purple-100 to-purple-200">
                 <Image
                   src={event.image || "/placeholder.svg"}
@@ -165,16 +167,17 @@ export default function EventsSlider({ animationsEnabled, largeFontEnabled }: Ev
               >
                 {event.role.split(" ")[0]}
               </Badge>
-            </div>
-
-            {/* Content */}
-            <div className="flex-1 min-w-0">
               <h3
-                className={`font-semibold text-gray-900 mb-2 ${largeFontEnabled ? "text-xl" : "text-lg"}`}
+                className={`font-semibold text-white mb-2 ${largeFontEnabled ? "text-xl" : "text-lg"}`}
                 tabIndex={0}
               >
                 {event.title}
               </h3>
+              </div>
+            </div>
+
+            {/* Content */}
+            <div className="flex-1 min-w-0">
 
               <div className="space-y-1 mb-3">
                 <div

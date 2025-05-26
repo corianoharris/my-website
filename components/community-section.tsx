@@ -20,6 +20,17 @@ export default function CommunitySection({ animationsEnabled, largeFontEnabled }
 
   const contributions = [
     {
+      title: "Code Connector",
+      role: "Coummunity Advocate | Mentor",
+      icon: <Users className="h-5 w-5 text-purple-600" />,
+      image: "/images/fofsd.svg",
+      description:
+      "Code Connector is a community of tech-enthusiasts who are passionate about coding and technology.",
+      stats: "2000+ members",
+      // link expires every 30 days
+      link: "https://join.slack.com/t/code-connector/shared_invite/zt-369qmi7lu-apUn_DzwRCWq8JR9rZUYiQ",
+    },
+    {
       title: "UX/UI Bytes",
       role: "Creator | Host",
       icon: <Heart className="h-5 w-5 text-purple-600" />,
@@ -30,11 +41,11 @@ export default function CommunitySection({ animationsEnabled, largeFontEnabled }
       link: "https://www.meetup.com/memphis-technology-user-groups/events/308003044/?eventOrigin=group_events_list",
     },
     {
-      title: "ImagineU Summer Entrepreneurship Accelerator University of Memphis",
+      title: "ImagineU Accelerator",
       icon: <MessageCircle className="h-5 w-5 text-purple-600" />,
       image: "/images/uom.png",
       description:
-      "A mentor for an summer immersive and intensive 12-week entrepreneurial experience.",
+      "A mentor for the University of Memphis summer immersive and intensive 12-week entrepreneurial experience.",
       role: "Mentor",
       stats: "12 students",
       link: "https://www.memphis.edu/crews/opportunities/imagineu.php",
@@ -50,7 +61,7 @@ export default function CommunitySection({ animationsEnabled, largeFontEnabled }
       link: "https://friends.figma.com/san-diego/",
     },
     {
-      title: "Memphis Technology Foundation",
+      title: "Memphis Technology",
       role: "Contributor",
       icon: <Code className="h-5 w-5 text-purple-600" />,
       image: "/images/mtf.png",
@@ -116,10 +127,11 @@ export default function CommunitySection({ animationsEnabled, largeFontEnabled }
     return (
       <Card className="h-full bg-white shadow-sm border border-gray-200 rounded-xl overflow-hidden hover:shadow-md transition-shadow w-full sm:w-11/12 md:w-10/12">
         <CardContent className="p-4">
-          <div className="flex items-start space-x-4">
+          <div className="flex flex-col justify-between h-full">
             {/* Contribution image */}
-            <div className="flex-shrink-0 relative" tabIndex={0} aria-label={`${contribution.title} contribution`}>
-              <div className="w-12 h-12 rounded-full overflow-hidden bg-gradient-to-br from-purple-100 to-purple-200">
+            <div className="flex flex-cols justify-start items-center gap-4 flex-wrap mb-4 bg-purple-800 rounded-sm p-2 text-white shadow-2xl">
+            <div className="flex-shrink-0" tabIndex={0} aria-label={`${contribution.title} contribution`}>
+              <div className="w-12 h-12 rounded-full overflow-hidden bg-gradient-to-br from-purple-100 to-purple-200 flex flex-col justify-between  border-gray-200">
                 <Image
                   src={contribution.image || "/placeholder.svg"}
                   alt={contribution.title}
@@ -131,14 +143,16 @@ export default function CommunitySection({ animationsEnabled, largeFontEnabled }
               {/* <div className="absolute -top-1 right-1">{contribution.icon}</div> */}
             </div>
 
-            {/* Content */}
-            <div className="flex-1 min-w-0">
               <h3
-                className={`font-semibold text-gray-900 mb-1 ${largeFontEnabled ? "text-xl" : "text-lg"}`}
+                className={`font-semibold text-white mb-1 ${largeFontEnabled ? "text-xl" : "text-lg"}`}
                 tabIndex={0}
               >
                 {contribution.title}
               </h3>
+            </div>
+
+            {/* Content */}
+            <div className="flex-1 min-w-0">
               <div
                 className={`text-gray-600 leading-relaxed mb-3 ${largeFontEnabled ? "text-base" : "text-sm"}`}
                 tabIndex={0}

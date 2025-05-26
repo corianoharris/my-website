@@ -263,10 +263,11 @@ export default function CompaniesSlider({ animationsEnabled, largeFontEnabled }:
     return (
       <Card className="h-full bg-white shadow-sm border border-gray-200 rounded-xl overflow-hidden hover:shadow-md transition-shadow w-full sm:w-11/12 md:w-10/12">
         <CardContent className="p-4">
-          <div className="flex items-start space-x-4">
+          <div className="flex flex-col justify-between h-full">
             {/* Company logo */}
-            <div className="flex-shrink-0" tabIndex={0} aria-label={`${company.name} company logo`}>
-              <div className="w-12 h-12 rounded-full overflow-hidden bg-gradient-to-br from-purple-100 to-purple-200">
+            <div className="flex flex-cols justify-start items-center gap-4 flex-wrap mb-4 bg-purple-800 rounded-sm p-2 text-white shadow-2xl">
+              <div className="flex-shrink-0" tabIndex={0} aria-label={`${company.name} company logo`}>
+              <div className="w-12 h-12 rounded-full overflow-hidden bg-gradient-to-br from-purple-100 to-purple-200 border-neutral-400 border shadow-2xl">
                 <img
                   src={company.logo || "/placeholder.svg"}
                   alt={`${company.name} logo`}
@@ -276,15 +277,19 @@ export default function CompaniesSlider({ animationsEnabled, largeFontEnabled }:
                 />
               </div>
             </div>
-
-            {/* Content */}
-            <div className="flex-1 min-w-0">
               <h3
-                className={`font-semibold text-gray-900 mb-1 ${largeFontEnabled ? "text-xl" : "text-lg"}`}
+                className={`font-semibold  mb-1 ${largeFontEnabled ? "text-xl" : "text-lg"}`}
                 tabIndex={0}
               >
                 {company.name}
               </h3>
+
+            </div>
+            
+
+            {/* Content */}
+            <div className="flex-1 min-w-0">
+              
               <p
                 className={`text-purple-600 font-medium mb-2 ${largeFontEnabled ? "text-base" : "text-sm"}`}
                 tabIndex={0}
@@ -484,7 +489,7 @@ export default function CompaniesSlider({ animationsEnabled, largeFontEnabled }:
                 />
               </div> */}
               <div>
-                <h2 className="text-2xl font-bold text-gray-900">{project.project.title}</h2>
+                <h2 className="text-1xl md:text-2xl font-bold text-gray-900">{project.project.title}</h2>
                 <p className="text-lg text-purple-600 font-medium">
                   {project.name} • {project.role}
                 </p>
