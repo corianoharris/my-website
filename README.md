@@ -220,7 +220,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Contact
 
 **Coriano Harris**
-- **Portfolio**: [https://www.corianoharris.com](https://www.corianoharris.com)
+- **Wesbite**: [https://www.corianoharris.com](https://www.corianoharris.com)
 - **Email**: [corianoharrispro@gmail.com](mailto:corianoharrispro@gmail.com)
 - **LinkedIn**: [linkedin.com/in/janedesigner](https://linkedin.com/in/corianoharris)
 - **GitHub**: [github.com/corianoharris](https://github.com/corianoharris)
