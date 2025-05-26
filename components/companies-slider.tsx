@@ -474,7 +474,7 @@ export default function CompaniesSlider({ animationsEnabled, largeFontEnabled }:
             </button>
 
             <div className="flex items-center gap-4 mb-4">
-              <div className="w-16 h-16 rounded-full overflow-hidden bg-gradient-to-br from-purple-100 to-purple-200">
+              {/* <div className="hidden w-16 h-16 rounded-full overflow-hidden bg-gradient-to-br from-purple-100 to-purple-200">
                 <img
                   src={project.logo || "/placeholder.svg"}
                   alt={`${project.name} logo`}
@@ -482,7 +482,7 @@ export default function CompaniesSlider({ animationsEnabled, largeFontEnabled }:
                   height={64}
                   className="object-contain w-full h-full"
                 />
-              </div>
+              </div> */}
               <div>
                 <h2 className="text-2xl font-bold text-gray-900">{project.project.title}</h2>
                 <p className="text-lg text-purple-600 font-medium">
@@ -557,7 +557,7 @@ export default function CompaniesSlider({ animationsEnabled, largeFontEnabled }:
               <h3 className="text-lg font-semibold mb-4">Key Metrics & Impact</h3>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 {Object.entries(project.project.metrics).map(([key, value]) => (
-                  <div key={key} className="bg-purple-50 rounded-lg p-4 text-center">
+                  <div key={key} className="bg-purple-50 rounded-lg p-2 text-center sm:text-pretty">
                     <div className="text-2xl font-bold text-purple-600">{value}</div>
                     <div className="text-sm text-gray-600 capitalize">{key.replace(/([A-Z])/g, " $1").trim()}</div>
                   </div>
