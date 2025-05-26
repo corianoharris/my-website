@@ -261,8 +261,8 @@ export default function CompaniesSlider({ animationsEnabled, largeFontEnabled }:
     const shouldTruncate = company.description.length > 100
 
     return (
-      <Card className="h-full bg-white shadow-sm border border-gray-200 rounded-xl overflow-hidden hover:shadow-md transition-shadow">
-        <CardContent className="p-6">
+      <Card className="h-full bg-white shadow-sm border border-gray-200 rounded-xl overflow-hidden hover:shadow-md transition-shadow w-full sm:w-11/12 md:w-10/12">
+        <CardContent className="p-4">
           <div className="flex items-start space-x-4">
             {/* Company logo */}
             <div className="flex-shrink-0" tabIndex={0} aria-label={`${company.name} company logo`}>
@@ -348,7 +348,7 @@ export default function CompaniesSlider({ animationsEnabled, largeFontEnabled }:
 
     return (
       <motion.div
-        className="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+        className="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4 "
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}

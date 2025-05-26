@@ -145,8 +145,8 @@ export default function EventsSlider({ animationsEnabled, largeFontEnabled }: Ev
     const shouldTruncate = event.topic.length > 50
 
     return (
-      <Card className="h-full bg-white shadow-sm border border-gray-200 rounded-xl overflow-hidden hover:shadow-md transition-shadow">
-        <CardContent className="p-6">
+      <Card className="h-full bg-white shadow-sm border border-gray-200 rounded-xl overflow-hidden hover:shadow-md transition-shadow w-full sm:w-11/12 md:w-10/12">
+        <CardContent className="p-4">
           <div className="flex items-start space-x-4">
             {/* Event image */}
             <div className="flex-shrink-0 relative" tabIndex={0} aria-label={`${event.title} event`}>

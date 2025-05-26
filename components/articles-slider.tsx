@@ -105,9 +105,9 @@ export default function ArticlesSlider({ animationsEnabled, largeFontEnabled }: 
     const shouldTruncate = article.excerpt.length > 100
 
     return (
-      <Card className="h-full bg-white shadow-sm border border-gray-200 rounded-xl overflow-hidden hover:shadow-md transition-shadow">
-        <CardContent className="p-6">
-          <div className="p-6">
+      <Card className="h-full bg-white shadow-sm border border-gray-200 rounded-xl overflow-hidden hover:shadow-md transition-shadow w-full sm:w-11/12 md:w-10/12">
+        <CardContent className="p-4">
+          <div className="p-4">
             <div className="space-y-3">
               <h3 className={`font-semibold text-gray-900 ${largeFontEnabled ? "text-xl" : "text-lg"}`} tabIndex={0}>
                 {article.title}
