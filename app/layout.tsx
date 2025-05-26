@@ -17,30 +17,29 @@ export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
-}>)
-{
+}>) {
   return (
     <html lang="en">
       <head>
         {/* Google Analytics Script */}
         {GA_ID && (
-          <>
-            <Script
-              src={`https://www.googletagmanager.com/gtag/js?id=G-HMV3QD2MD0`}
-              strategy="afterInteractive"
-            />
-            <Script id="ga-init" strategy="afterInteractive">
-              {`
+  <>
+    <Script
+      src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+      strategy="afterInteractive"
+    />
+    <Script id="ga-init" strategy="afterInteractive">
+      {`
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-        gtag('config', 'G-HMV3QD2MD0', {
+        gtag('config', '${GA_ID}', {
           page_path: window.location.pathname,
         });
       `}
-            </Script>
-          </>
-        )}
+    </Script>
+  </>
+)}
       </head>
       <body>{children}</body>
     </html>
