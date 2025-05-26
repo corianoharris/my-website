@@ -557,7 +557,7 @@ export default function CompaniesSlider({ animationsEnabled, largeFontEnabled }:
               <h3 className="text-lg font-semibold mb-4">Key Metrics & Impact</h3>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 {Object.entries(project.project.metrics).map(([key, value]) => (
-                  <div key={key} className="bg-purple-50 rounded-lg p-2 text-center sm:text-pretty">
+                  <div key={key} className="bg-purple-50 rounded-lg p-2 text-center sm:w-fit md:w-fit">
                     <div className="text-2xl font-bold text-purple-600">{value}</div>
                     <div className="text-sm text-gray-600 capitalize">{key.replace(/([A-Z])/g, " $1").trim()}</div>
                   </div>

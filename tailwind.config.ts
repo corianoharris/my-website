@@ -76,6 +76,10 @@ const config = {
        margin: {
         '-40': '-20px',
       },
+      width: {
+        // Add the custom 'fit-content' value to the width scale
+        'fit': 'fit-content',
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],
