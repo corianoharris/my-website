@@ -10,10 +10,10 @@ export const GA_TRACKING_ID = process.env.NEXT_PUBLIC_GA_ID || '';
 export const pageview = (url: string) => {
   if (
     typeof window !== 'undefined' &&
-    GA_TRACKING_ID &&
+    "G-HMV3QD2MD0" &&
     process.env.NODE_ENV === 'production'
   ) {
-    window.gtag('config', GA_TRACKING_ID, {
+    window.gtag('config', 'G-HMV3QD2MD0', {
       page_path: url,
     });
   }
