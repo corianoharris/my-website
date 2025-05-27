@@ -263,9 +263,9 @@ export default function CompaniesSlider({ animationsEnabled, largeFontEnabled }:
     return (
       <Card className="h-full bg-white shadow-sm border border-gray-200 rounded-xl overflow-hidden hover:shadow-md transition-shadow w-full sm:w-11/12 md:w-10/12">
         <CardContent className="p-4">
-          <div className="flex flex-col justify-between h-full">
+          <div className="flex flex-col justify-between h-full w-[90%] md:w-auto">
             {/* Company logo */}
-            <div className="flex flex-cols justify-start items-center gap-4 flex-wrap mb-4 bg-purple-800 rounded-sm p-2 text-white shadow-2xl">
+            <div className="flex flex-cols justify-start items-center gap-4  mb-4 bg-purple-800 rounded-sm p-2 text-white shadow-2xl">
               <div className="flex-shrink-0" tabIndex={0} aria-label={`${company.name} company logo`}>
               <div className="w-12 h-12 rounded-full overflow-hidden bg-gradient-to-br from-purple-100 to-purple-200 border-neutral-400 border shadow-2xl">
                 <img
@@ -279,7 +279,7 @@ export default function CompaniesSlider({ animationsEnabled, largeFontEnabled }:
               </div>
             </div>
               <h3
-                className={`font-semibold  mb-1 ${largeFontEnabled ? "text-xl" : "text-lg"}`}
+                className={`font-semibold  mb-1 ${largeFontEnabled ? "text-md" : "text-lg"}`}
                 tabIndex={0}
               >
                 {company.name}
