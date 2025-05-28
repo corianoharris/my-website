@@ -21,7 +21,7 @@ export default function RoleMarquee({ animationsEnabled, largeFontEnabled }: Rol
 
   return (
     <div
-      className="bg-gray-100 py-4 overflow-hidden"
+      className="bg-gray-100 py-4 overflow-hidden mt-16"
       tabIndex={0}
       aria-label="Professional roles and specializations"
       role="banner"
