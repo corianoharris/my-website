@@ -5,15 +5,18 @@ import { motion } from "framer-motion"
 import { ChevronDown, ChevronUp } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
-interface ApproachSectionProps {
+interface ApproachSectionProps
+{
   animationsEnabled: boolean
   largeFontEnabled: boolean
 }
 
-export default function ApproachSection({ animationsEnabled, largeFontEnabled }: ApproachSectionProps) {
+export default function ApproachSection({ animationsEnabled, largeFontEnabled }: ApproachSectionProps)
+{
   const [isExpanded, setIsExpanded] = useState(false)
 
-  const toggleExpanded = () => {
+  const toggleExpanded = () =>
+  {
     setIsExpanded(!isExpanded)
   }
 
@@ -39,9 +42,23 @@ export default function ApproachSection({ animationsEnabled, largeFontEnabled }:
     },
   }
 
-  const shortText = `The document discusses how marketing analytics uses procedures and technologies to assess the success of marketing initiatives by estimating performance metrics. It aims to determine how marketing analytics benefits from big data and its implications for marketing strategies and decision-making processes.`
+  const shortText = ` I focus on keeping code clean and maintainable using the SOLID principles (like Single Responsibility and
+              Dependency Inversion) and the DRY principle (Don’t Repeat Yourself). I also stick to
+              simple, effective tools through the Rule of Least Power. In design, I prioritize visual hierarchy to guide
+              users through the page and balance to keep things organized and uncluttered. Contrast is key to making
+              important elements stand out and accessible for all users.`
 
-  const expandedText = `Marketing analytics leverages advanced statistical methods and machine learning algorithms to extract meaningful insights from vast datasets. These insights enable marketers to optimize campaign performance, improve customer segmentation, and enhance return on investment. The integration of real-time data processing capabilities allows for dynamic adjustment of marketing strategies based on current market conditions and consumer behavior patterns. Furthermore, predictive analytics helps forecast future trends and customer preferences, enabling proactive marketing approaches that drive sustainable business growth and competitive advantage in today's data-driven marketplace.`
+  const expandedText = `I also incorporate Fitts’
+              Law—designing interfaces so that the most important elements are the easiest to interact with,
+              reducing user effort and improving the experience. For web strategy, I follow mobile-first
+              design, ensuring that the site is optimized for smaller screens first and then scaling up. This
+              ensures a seamless experience across all devices, especially as mobile traffic continues to rise. I
+              approach challenges with a modular, component-driven process, using RAPID principles (Recommend,
+              Agree, Perform, Input, Decide) for decisions and the AAA ( Arrange, Act, Acceptance)
+              pattern for testing. Data is always my guide for informed decisions. Empathy and
+              accessibility guide my design decisions to create user-friendly and inclusive solutions. I value
+              collaboration, clear communication, and creative
+              problem-solving to find the best answers.`
 
   return (
     <section
@@ -60,9 +77,8 @@ export default function ApproachSection({ animationsEnabled, largeFontEnabled }:
           >
             <motion.h2
               id="approach-heading"
-              className={`font-bold mb-6 text-gray-900 ${
-                largeFontEnabled ? "text-4xl md:text-5xl" : "text-3xl md:text-4xl"
-              }`}
+              className={`font-bold mb-6 text-gray-900 ${largeFontEnabled ? "text-4xl md:text-5xl" : "text-3xl md:text-4xl"
+                }`}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -104,9 +120,8 @@ export default function ApproachSection({ animationsEnabled, largeFontEnabled }:
                   variant="ghost"
                   tabIndex={0}
                   onClick={toggleExpanded}
-                  className={`text-primary hover:text-primary/80 font-medium focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 ${
-                    largeFontEnabled ? "text-lg px-6 py-3 h-auto" : ""
-                  }`}
+                  className={`text-primary hover:text-primary/80 font-medium focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 ${largeFontEnabled ? "text-lg px-6 py-3 h-auto" : ""
+                    }`}
                   aria-expanded={isExpanded}
                   aria-controls="expanded-content"
                 >
@@ -127,9 +142,8 @@ export default function ApproachSection({ animationsEnabled, largeFontEnabled }:
           <div className="max-w-4xl mx-auto text-center">
             <h2
               id="approach-heading"
-              className={`font-bold mb-6 text-gray-900 ${
-                largeFontEnabled ? "text-4xl md:text-5xl" : "text-3xl md:text-4xl"
-              }`}
+              className={`font-bold mb-6 text-gray-900 ${largeFontEnabled ? "text-4xl md:text-5xl" : "text-3xl md:text-4xl"
+                }`}
               tabIndex={0}
             >
               What I Apply to Everything I Do
@@ -149,9 +163,8 @@ export default function ApproachSection({ animationsEnabled, largeFontEnabled }:
                   variant="ghost"
                   tabIndex={0}
                   onClick={toggleExpanded}
-                  className={`text-primary hover:text-primary/80 font-medium focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 ${
-                    largeFontEnabled ? "text-lg px-6 py-3 h-auto" : ""
-                  }`}
+                  className={`text-primary hover:text-primary/80 font-medium focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 ${largeFontEnabled ? "text-lg px-6 py-3 h-auto" : ""
+                    }`}
                   aria-expanded={isExpanded}
                   aria-controls="expanded-content"
                 >
