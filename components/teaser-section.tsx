@@ -42,7 +42,7 @@ export default function TeaserSection({ animationsEnabled, largeFontEnabled }: T
   return (
     <section
       id="top"
-      className="py-16 md:py-24 bg-purple-100 shadow-bottom-lg text-poppins"
+      className="py-8 md:py-16 bg-purple-100 shadow-bottom-lg text-poppins"
       tabIndex={0}
       aria-label="Hero section - Coriano Harris introduction"
     >
@@ -57,17 +57,16 @@ export default function TeaserSection({ animationsEnabled, largeFontEnabled }: T
           >
             <motion.div className="lg:col-span-8 xl:col-span-7 space-y-6" variants={textVariants}>
               <h1
-                className={`text-wave-animation text-poppins font-bold leading-tight text-white tracking-wider ${
+                className={`text-wave-animation font-bold  text-white tracking-wider ${
                   largeFontEnabled ? "text-5xl md:text-7xl xl:text-8xl" : "text-4xl md:text-6xl xl:text-7xl"
                 }`}
                 tabIndex={0}
               >
-                Crafting Digital Experiences That{" "}
-                Help Organizations and Users
+                Crafting human-first solutions for organizations.
               </h1>
-              <p className={`text-purple-800 font-semibold max-w-2xl ${largeFontEnabled ? "text-2xl" : "text-xl"}`} tabIndex={0}>
+              {/* <p className={`text-purple-800 font-semibold max-w-2xl ${largeFontEnabled ? "text-2xl" : "text-xl"}`} tabIndex={0}>
                 Full-stack UX designer and developer creating intuitive, engaging, and accessible digital solutions.
-              </p>
+              </p> */}
               <p className={`text-purple-900 font-semibold ${largeFontEnabled ? "text-lg" : "text-base"}`} tabIndex={0}>
                 Available for freelance projects and full-time opportunities.
               </p>
@@ -116,17 +115,17 @@ export default function TeaserSection({ animationsEnabled, largeFontEnabled }: T
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-8 xl:col-span-7 space-y-6">
               <h1
-                className={`font-bold leading-tight text-puplre-100 ${
+                className={`font-bold text-purple-900 tracking-wider leading-10 ${
                   largeFontEnabled ? "text-5xl md:text-7xl xl:text-8xl" : "text-4xl md:text-6xl xl:text-7xl"
                 }`}
                 tabIndex={0}
               >
-                Crafting <span className="text-purple-400">Digital</span> Experiences That{" "}
-                <span className="text-purple-400">Help Organizations and Users</span>
+                Crafting {""}<span className="text-purple-600">human-first solutions</span>
+                <span className="text-purple-400"> for organizations</span>
               </h1>
-              <p className={`text-purple-900 font-semibold max-w-2xl ${largeFontEnabled ? "text-2xl" : "text-xl"}`} tabIndex={0}>
+              {/* <p className={`text-purple-900 font-semibold max-w-2xl ${largeFontEnabled ? "text-2xl" : "text-xl"}`} tabIndex={0}>
                 Full-stack UX designer and developer creating intuitive, engaging, and accessible digital solutions.
-              </p>
+              </p> */}
               <p className={`text-purple-900 font-semibold ${largeFontEnabled ? "text-lg" : "text-base"}`} tabIndex={0}>
                 Available for freelance projects and full-time opportunities.
               </p>

@@ -26,7 +26,7 @@ export default function CommunitySection({ animationsEnabled, largeFontEnabled }
       image: "/images/fofsd.svg",
       description:
       "Code Connector is a community of tech-enthusiasts who are passionate about coding and technology.",
-      stats: "2000+ members",
+      stats: "+2000 members",
       // link expires every 30 days
       link: "https://join.slack.com/t/code-connector/shared_invite/zt-369qmi7lu-apUn_DzwRCWq8JR9rZUYiQ",
     },
@@ -37,11 +37,11 @@ export default function CommunitySection({ animationsEnabled, largeFontEnabled }
       image: "/images/ux-ui-bytes.png",
       description:
         "An hour open forum for everyone interested in UX and UI design to come a discuss, share, and learn from one another.",
-      stats: "Avg. 28 attendees per event",
+      stats: "Avg. 28 attendees",
       link: "https://www.meetup.com/memphis-technology-user-groups/events/308003044/?eventOrigin=group_events_list",
     },
     {
-      title: "ImagineU Accelerator",
+      title: "ImagineU UoM",
       icon: <MessageCircle className="h-5 w-5 text-purple-600" />,
       image: "/images/uom.png",
       description:
@@ -57,7 +57,7 @@ export default function CommunitySection({ animationsEnabled, largeFontEnabled }
       image: "/images/fofsd.svg",
       description:
       "The Figma Community Group is a monthly meetup where we share our knowledge and tips on Figma with like-minded designers. We also have a mentorship program for those who want to learn Figma.",
-      stats: "594 members",
+      stats: "+594 members",
       link: "https://friends.figma.com/san-diego/",
     },
     {
@@ -67,7 +67,7 @@ export default function CommunitySection({ animationsEnabled, largeFontEnabled }
       image: "/images/mtf.png",
       description:
         "Memphis Technology Foundation open source projects.",
-      stats: "50+ PRs",
+      stats: "+28 PRs",
       link: "https://github.com/orgs/memtech/teams/designandcode",
     },
   ]
@@ -145,7 +145,7 @@ export default function CommunitySection({ animationsEnabled, largeFontEnabled }
             </div>
 
               <h3
-                className={`font-semibold text-white mb-1 ${largeFontEnabled ? "text-xl" : "text-lg"}`}
+                className={`font-semibold text-white mb-1 ${largeFontEnabled ? "text-lg" : "text-md"}`}
                 tabIndex={0}
               >
                 {contribution.title}

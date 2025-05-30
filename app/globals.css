@@ -26,10 +26,6 @@
     --radius: 0.5rem;
   }
 
-  .text-poppins {
-    font-family: "Poppins", sans-serif;
-  }
-
   .dark {
     --background: 20 14.3% 4.1%;
     --foreground: 0 0% 95%;
@@ -50,8 +46,24 @@
     --border: 240 3.7% 15.9%;
     --input: 240 3.7% 15.9%;
     --ring: 346 77% 49%;
+    --font-dec-header: "Poppins", sans-serif;
+  --font-primary: "Montserrat", sans-serif;
+  --font-dec-tertiary: "Barriecito", sans-serif;
   }
 }
+
+.font-poppins {
+  font-family: var(--font-dec-header);
+  letter-spacing: 1.25px;
+  line-height: 1.5;
+}
+
+.font-montserrat {
+  font-family: var(--font-primary);
+  letter-spacing: 1.25px;
+  line-height: 1.5px;
+}
+
 
 @layer base {
   * {
@@ -59,7 +71,7 @@
   }
 
   body {
-    @apply bg-background text-foreground text-poppins ;
+    @apply bg-background text-foreground font-poppins;
   }
 }
 

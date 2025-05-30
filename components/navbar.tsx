@@ -64,7 +64,7 @@ export default function Navbar({
                 height={40}
                 className="rounded-md"
               />
-              <span className="font-bolder text-2xl">Coriano Harris</span>
+              <span className="font-bolder text-2xl">Coriano</span><span className="font-bold text-2xl">Harris</span>
             </Link>
           </div>
 

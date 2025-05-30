@@ -279,7 +279,7 @@ export default function CompaniesSlider({ animationsEnabled, largeFontEnabled }:
               </div>
             </div>
               <h3
-                className={`font-semibold  mb-1 ${largeFontEnabled ? "text-md" : "text-lg"}`}
+                className={`font-semibold  mb-1 ${largeFontEnabled ? "text-lg" : "text-md"}`}
                 tabIndex={0}
               >
                 {company.name}

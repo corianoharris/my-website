@@ -9,6 +9,8 @@ interface RoleMarqueeProps {
 
 export default function RoleMarquee({ animationsEnabled, largeFontEnabled }: RoleMarqueeProps) {
   const roles = [
+    "Product Designer",
+    "UX Researcher",
     "UX/UI Designer",
     "Full-Stack Developer",
     "Design Technologist",

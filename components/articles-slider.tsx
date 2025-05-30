@@ -109,7 +109,7 @@ export default function ArticlesSlider({ animationsEnabled, largeFontEnabled }: 
         <CardContent className="p-4">
           <div className="p-4">
             <div className="space-y-3">
-              <h3 className={`font-semibold text-gray-900 ${largeFontEnabled ? "text-xl" : "text-lg"}`} tabIndex={0}>
+              <h3 className={`font-semibold text-gray-900 ${largeFontEnabled ? "text-lg" : "text-md"}`} tabIndex={0}>
                 {article.title}
               </h3>
               <div

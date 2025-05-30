@@ -29,7 +29,7 @@ export default function EventsSlider({ animationsEnabled, largeFontEnabled }: Ev
       url: "https://colorcode.events/speaker/coriano-harris/",
     },
     {
-      title: "BDPA Lunch and Learn",
+      title: "BDPA Lunch/Learn",
       image: "/images/bdpa.png",
       date: "May 1, 2025",
       location: "Memphis, TN",
@@ -169,7 +169,7 @@ export default function EventsSlider({ animationsEnabled, largeFontEnabled }: Ev
                 {event.role.split(" ")[0]}
               </Badge>
               <h3
-                className={`font-semibold text-white mb-2 ${largeFontEnabled ? "text-xl" : "text-lg"}`}
+                className={`font-semibold text-white mb-2 ${largeFontEnabled ? "text-lg" : "text-md"}`}
                 tabIndex={0}
               >
                 {event.title}
