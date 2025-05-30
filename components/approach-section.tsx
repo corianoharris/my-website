@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useRef, useState } from "react"
 import { motion } from "framer-motion"
 import { ChevronDown, ChevronUp } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -14,10 +14,13 @@ interface ApproachSectionProps
 export default function ApproachSection({ animationsEnabled, largeFontEnabled }: ApproachSectionProps)
 {
   const [isExpanded, setIsExpanded] = useState(false)
+ const ref = useRef<HTMLDivElement | null>(null);
 
   const toggleExpanded = () =>
   {
     setIsExpanded(!isExpanded)
+    window.scrollTo({ top: ref.current?.offsetTop ?? 0, behavior: "smooth" });
+
   }
 
   const containerVariants = {
@@ -42,29 +45,16 @@ export default function ApproachSection({ animationsEnabled, largeFontEnabled }:
     },
   }
 
-  const shortText = ` I focus on keeping code clean and maintainable using the SOLID principles (like Single Responsibility and
-              Dependency Inversion) and the DRY principle (Don’t Repeat Yourself). I also stick to
-              simple, effective tools through the Rule of Least Power. In design, I prioritize visual hierarchy to guide
-              users through the page and balance to keep things organized and uncluttered. Contrast is key to making
-              important elements stand out and accessible for all users.`
+  const shortText = `Advocating SOLID and DRY principles, favoring simple tools through the Rule of Least Power. In design, I focus on visual hierarchy, balance, and contrast to create clear, accessible, and organized experiences`
 
-  const expandedText = `I also incorporate Fitts’
-              Law—designing interfaces so that the most important elements are the easiest to interact with,
-              reducing user effort and improving the experience. For web strategy, I follow mobile-first
-              design, ensuring that the site is optimized for smaller screens first and then scaling up. This
-              ensures a seamless experience across all devices, especially as mobile traffic continues to rise. I
-              approach challenges with a modular, component-driven process, using RAPID principles (Recommend,
-              Agree, Perform, Input, Decide) for decisions and the AAA ( Arrange, Act, Acceptance)
-              pattern for testing. Data is always my guide for informed decisions. Empathy and
-              accessibility guide my design decisions to create user-friendly and inclusive solutions. I value
-              collaboration, clear communication, and creative
-              problem-solving to find the best answers.`
+  const expandedText = `Futhermore, I prioritize Fitts’ Law in mind—making key actions easy to access and reducing user effort. I follow a mobile-first strategy to ensure seamless experiences across all devices. My modular, component-driven approach is backed by RAPID for decision-making and the AAA pattern for testing. Data guides my choices, while empathy and accessibility shape inclusive, user-friendly designs. I value collaboration, clear communication, and creative problem-solving to deliver thoughtful, scalable solutions`
 
   return (
     <section
       className="py-16 md:py-20 bg-gradient-to-brfrom-white via-purple-50 to-purple-100"
       tabIndex={0}
       aria-labelledby="approach-heading"
+      ref={ref}
     >
       <div className="container mx-auto px-4">
         {animationsEnabled ? (
@@ -149,7 +139,7 @@ export default function ApproachSection({ animationsEnabled, largeFontEnabled }:
               What I Apply to Everything I Do
             </h2>
 
-            <div className={`leading-relaxed text-gray-700 space-y-4 ${largeFontEnabled ? "text-xl" : "text-lg"}`}>
+            <div className={`leading-relaxed text-gray-700 space-y-4 ${largeFontEnabled ? "text-xl" : "text-lg"} sm: h-[200px] overflow-hidden sm:scroll-y-auto`}>
               <p tabIndex={0}>{shortText}</p>
 
               {isExpanded && (
