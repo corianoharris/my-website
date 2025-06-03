@@ -21,6 +21,16 @@ export default function RoleMarquee({ animationsEnabled, largeFontEnabled }: Rol
 
   const duplicatedRoles = [...roles, ...roles, ...roles]
 
+  const Pill = ({ role }: { role: string }) => (
+    <span
+      className={`bg-purple-600 text-white font-medium px-3 py-1 rounded-full shadow-lg ${
+        largeFontEnabled ? "text-sm" : "text-xs"
+      }`}
+    >
+      {role}
+    </span>
+  )
+
   return (
     <div
       className="bg-gray-100 py-4 overflow-hidden mt-16"
@@ -32,12 +42,10 @@ export default function RoleMarquee({ animationsEnabled, largeFontEnabled }: Rol
         {animationsEnabled ? (
           <motion.div
             className="flex gap-6 items-center"
-            animate={{
-              x: [0, -100 * roles.length],
-            }}
+            animate={{ x: [0, -100 * roles.length] }}
             transition={{
               x: {
-                repeat: Number.POSITIVE_INFINITY,
+                repeat: Infinity,
                 repeatType: "loop",
                 duration: 20,
                 ease: "linear",
@@ -45,27 +53,13 @@ export default function RoleMarquee({ animationsEnabled, largeFontEnabled }: Rol
             }}
           >
             {duplicatedRoles.map((role, index) => (
-              <span
-                key={index}
-                className={`bg-purple-600 text-white font-medium px-3 py-1 rounded-full shadow-lg ${
-                  largeFontEnabled ? "text-sm" : "text-xs"
-                }`}
-              >
-                {role}
-              </span>
+              <Pill key={index} role={role} />
             ))}
           </motion.div>
         ) : (
           <div className="flex gap-6 items-center">
             {roles.map((role, index) => (
-              <span
-                key={index}
-                className={`bg-purple-600 text-white font-medium px-3 py-1 rounded-full shadow-lg ${
-                  largeFontEnabled ? "text-sm" : "text-xs"
-                }`}
-              >
-                {role}
-              </span>
+              <Pill key={index} role={role} />
             ))}
           </div>
         )}
