@@ -56,7 +56,7 @@ export default function ApproachSection({ animationsEnabled, largeFontEnabled }:
       aria-labelledby="approach-heading"
       ref={ref}
     >
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 max-h">
         {animationsEnabled ? (
           <motion.div
             className="max-w-4xl mx-auto text-center"
@@ -139,7 +139,7 @@ export default function ApproachSection({ animationsEnabled, largeFontEnabled }:
               What I Apply to Everything I Do
             </h2>
 
-            <div className={`leading-relaxed text-gray-700 space-y-4 ${largeFontEnabled ? "text-xl" : "text-lg"} sm: h-[200px] overflow-hidden sm:scroll-y-auto`}>
+            <div className={`leading-relaxed text-gray-700 space-y-4 ${largeFontEnabled ? "text-xl" : "text-lg"}`}>
               <p tabIndex={0}>{shortText}</p>
 
               {isExpanded && (
