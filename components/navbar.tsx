@@ -50,7 +50,7 @@ export default function Navbar({
   return (
     <header className="fixed top-0 z-20 bg-background/80 backdrop-blur-md border-b w-full" role="banner">
       <div className="container mx-auto px-4 py-3">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center flex-wrap justify-between">
           <div className="flex items-center gap-2">
             <Link
               href="#top"

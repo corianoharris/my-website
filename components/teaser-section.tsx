@@ -68,7 +68,7 @@ export default function TeaserSection({ animationsEnabled, largeFontEnabled }: T
                 Full-stack UX designer and developer creating intuitive, engaging, and accessible digital solutions.
               </p> */}
               <p className={`text-purple-900 font-semibold ${largeFontEnabled ? "text-lg" : "text-base"}`} tabIndex={0}>
-                Available for freelance projects and full-time opportunities.
+                Available for project opportunities.
               </p>
               {/* Button styles when needed: flex flex-wrap gap-4 */}
               <div className="hidden">
@@ -101,7 +101,7 @@ export default function TeaserSection({ animationsEnabled, largeFontEnabled }: T
               <div className="relative h-[400px] lg:h-[500px] rounded-lg overflow-hidden shadow-2xl transform md:skew-y-6 transition duration-300">
                 <Image
                   src="/images/sd_a11y.jpg"
-                  alt="Coriano spesking to designers and developers about accessibility"
+                  alt="Coriano speaking to designers and developers about accessibility"
                   title="Coriano speaking to designers and developers about accessibility"
                   fill
                   className="object-cover"
@@ -121,7 +121,7 @@ export default function TeaserSection({ animationsEnabled, largeFontEnabled }: T
                 tabIndex={0}
               >
                 Crafting {""}<span className="text-purple-600">human-first solutions</span>
-                <span className="text-purple-400"> for organizations</span>
+                <span className="text-purple-400 break-words"> for organizations</span>
               </h1>
               {/* <p className={`text-purple-900 font-semibold max-w-2xl ${largeFontEnabled ? "text-2xl" : "text-xl"}`} tabIndex={0}>
                 Full-stack UX designer and developer creating intuitive, engaging, and accessible digital solutions.
@@ -159,7 +159,7 @@ export default function TeaserSection({ animationsEnabled, largeFontEnabled }: T
               <div className="relative h-[400px] lg:h-[500px] rounded-lg overflow-hidden shadow-2xl p-2 transform lg:skew-y-3 transition duration-300 mt-4 lg:mt-0">
                 <Image
                   src="/images/sd_a11y.jpg"
-                  alt="Coriano spesking to designers and developers about accessibility"
+                  alt="Coriano speaking to designers and developers about accessibility"
                   title="Coriano speaking to designers and developers about accessibility"
                   fill
                   className="object-cover"
