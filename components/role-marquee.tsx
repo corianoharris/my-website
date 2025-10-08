@@ -1,6 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
+import { useState, useEffect } from "react"
 
 interface RoleMarqueeProps {
   animationsEnabled: boolean
@@ -8,6 +9,8 @@ interface RoleMarqueeProps {
 }
 
 export default function RoleMarquee({ animationsEnabled, largeFontEnabled }: RoleMarqueeProps) {
+  const [isReady, setIsReady] = useState(false)
+  
   const roles = [
     "Product Designer",
     "UX Researcher",
@@ -20,6 +23,15 @@ export default function RoleMarquee({ animationsEnabled, largeFontEnabled }: Rol
   ]
 
   const duplicatedRoles = [...roles, ...roles, ...roles]
+
+  useEffect(() => {
+    // Small delay to ensure smooth animation start
+    const timer = setTimeout(() => {
+      setIsReady(true)
+    }, 100)
+    
+    return () => clearTimeout(timer)
+  }, [])
 
   const Pill = ({ role }: { role: string }) => (
     <span
@@ -39,16 +51,28 @@ export default function RoleMarquee({ animationsEnabled, largeFontEnabled }: Rol
       role="banner"
     >
       <div className="flex items-center justify-center whitespace-nowrap">
-        {animationsEnabled ? (
+        {!isReady ? (
+          <div className="flex gap-6 items-center opacity-0">
+            {roles.map((role, index) => (
+              <Pill key={index} role={role} />
+            ))}
+          </div>
+        ) : animationsEnabled ? (
           <motion.div
             className="flex gap-6 items-center"
-            animate={{ x: [0, -100 * roles.length] }}
+            initial={{ x: 0, opacity: 0 }}
+            animate={{ 
+              x: [0, -100 * roles.length],
+              opacity: 1
+            }}
             transition={{
+              opacity: { duration: 0.85, ease: "easeOut" },
               x: {
                 repeat: Infinity,
                 repeatType: "loop",
                 duration: 20,
                 ease: "linear",
+                delay: 0.85
               },
             }}
           >
@@ -57,11 +81,16 @@ export default function RoleMarquee({ animationsEnabled, largeFontEnabled }: Rol
             ))}
           </motion.div>
         ) : (
-          <div className="flex gap-6 items-center">
+          <motion.div 
+            className="flex gap-6 items-center justify-center w-full"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.85, ease: "easeOut" }}
+          >
             {roles.map((role, index) => (
               <Pill key={index} role={role} />
             ))}
-          </div>
+          </motion.div>
         )}
       </div>
     </div>
